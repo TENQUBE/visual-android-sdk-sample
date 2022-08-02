@@ -1,7 +1,7 @@
 # visual-android-sdk-sample
 # 가계부
 - VISUAL_API_KEY 정보 요청
-```java
+```kotlin
   private fun startVisual() {
       // visual service 생성
       val visualService = VisualServiceImpl(
@@ -21,7 +21,7 @@
 
 # 영수증
 - RECEIPT_API_KEY 정보 요청
-```
+```kotlin
   private fun startReceipt() {
     VisualServiceBuilder()
         .activity(this)
