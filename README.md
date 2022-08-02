@@ -1,4 +1,17 @@
 # visual-android-sdk-sample
+
+# 빌드
+https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
+
+# gradle
+```gradle
+dependencies {
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+    implementation 'com.tenqube:ibkreceipt:0.0.1-alpha05'
+    implementation 'com.tenqube:ibk:1.6.8'
+}
+```
+
 # 가계부
 - VISUAL_API_KEY 정보 요청
 ```kotlin
