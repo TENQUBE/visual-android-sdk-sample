@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
         applicationId "com.tenqube.visualsample"
-        minSdk 21
-        targetSdk 30
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
