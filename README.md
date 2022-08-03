@@ -4,10 +4,10 @@
 https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
 
 # aar
-libs/
-visaul-ibk-receipt-0.0.1-alpha05.aar
-visual-ibk-0.0.1-alpha04.aar
-visual-third-party-1.6.8-ibk.aar
+## libs/
+- visaul-ibk-receipt-0.0.1-alpha05.aar
+- visual-ibk-0.0.1-alpha04.aar
+- visual-third-party-1.6.8-ibk.aar
 
 ```gradle 
 dependencies {
