@@ -3,6 +3,22 @@
 # 빌드
 https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
 
+# aar
+libs/
+visaul-ibk-receipt-0.0.1-alpha05.aar
+visual-ibk-0.0.1-alpha04.aar
+visual-third-party-1.6.8-ibk.aar
+
+```gradle 
+dependencies {
+    implementation "com.tenqube:notiparser:0.0.7"
+    implementation "com.tenqube:transmsparser:0.0.1-alpha05"
+    implementation "com.tenqube:visualbase:0.0.1-alpha05"
+    implementation "com.tenqube:webui:0.0.1-alpha05"
+    implementation "com.tenqube:shared:0.0.1-alpha05"
+}
+```
+# aar 아닐경우
 # gradle
 ```gradle
 dependencies {
@@ -52,3 +68,6 @@ dependencies {
         .start(UserArg(":UID", 1987, VisualGender.MALE)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
   }
 ```
+
+# 테스트 방법
+
