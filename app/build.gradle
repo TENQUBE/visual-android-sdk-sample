@@ -38,9 +38,12 @@ android {
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
 
-    implementation 'com.tenqube:ibkreceipt:0.0.1-alpha05'
-    implementation 'com.tenqube:ibk:1.6.8'
-//    implementation "com.tenqube:notiparser:0.0.7"
+    // 가계부에서 사용되는 모듈
+    implementation "com.tenqube:notiparser:0.0.7"
+    implementation "com.tenqube:transmsparser:0.0.1-alpha05"
+    implementation "com.tenqube:visualbase:0.0.1-alpha05"
+    implementation "com.tenqube:webui:0.0.1-alpha05"
+    implementation "com.tenqube:shared:0.0.1-alpha05"
 
     implementation 'androidx.core:core-ktx:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.0.0'

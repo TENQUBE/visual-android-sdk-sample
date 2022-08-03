@@ -12,8 +12,8 @@ import com.tenqube.visual_third.Constants
 import com.tenqube.visual_third.VisualServiceImpl
 
 class MainActivity : AppCompatActivity() {
-    private val VISUAL_API_KEY = "" // TODO 가계부 api 키정보
-    private val RECEIPT_API_KEY = "" // TODO 영수증 api 키정보
+    private val VISUAL_API_KEY = "LEZQmdU1Zx8hxH1PjfT7hWTzdGOQYre58AVHNgA0" // TODO 가계부 api 키정보
+    private val RECEIPT_API_KEY = "hvvDxbym1D2hYCbMnERM73rZvRopPSZh1Us4Whvq" // TODO 영수증 api 키정보
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
