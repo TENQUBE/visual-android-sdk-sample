@@ -79,3 +79,5 @@ dependencies {
 `15881600;title;[Web발신] NH카드8*9* 승인 김*중 21,380원 체크 11/19 16:53 쿠팡102;2
 ```
 - 모바일 영수증 및 알림이 뜹니다.
+<img src="https://user-images.githubusercontent.com/15064370/182564090-2cf87cfc-2ec2-4350-9dba-5e89b455599a.jpg" width="200" height="400"/>
+
