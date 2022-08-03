@@ -70,8 +70,9 @@ dependencies {
 ```
 
 # 테스트 방법
-- 어플알림 연동 ON![Screenshot_20220803-172804_Settings](https://user-images.githubusercontent.com/15064370/182561930-8591fe23-f303-4c43-96fa-47230124588b.jpg){: width="100" height="100"}
-![Screenshot_20220801-161222_visual-android-sdk](https://user-images.githubusercontent.com/15064370/182561946-d7bd4751-1707-4560-898a-f4305b23566f.jpg){: width="100" height="100"}
+- 어플알림 연동 ON 
+<img src="https://user-images.githubusercontent.com/15064370/182561946-d7bd4751-1707-4560-898a-f4305b23566f.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/15064370/182561930-8591fe23-f303-4c43-96fa-47230124588b.jpg" width="200" height="400"/>
 
 - 테스트 할 단말기에 아래와 같은 문자를 보냅니다
 ```
