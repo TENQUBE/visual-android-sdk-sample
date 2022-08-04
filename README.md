@@ -1,21 +1,51 @@
 # visual-android-sdk-sample
 
-# 빌드
-https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
-
 # aar
 ## libs/
-- visaul-ibk-receipt-0.0.1-alpha05.aar
-- visual-ibk-0.0.1-alpha04.aar
+- visual-ibk-ibkreceipt-0.0.1.aar
+- visual-ibk-shared-0.0.1.aar
+- visual-ibk-transmsparser-0.0.1.aar
+- visual-ibk-visualbase-0.0.1.aar
+- visual-ibk-visualibk-0.0.1.aar
+- visual-ibk-webui-0.0.1.aar
 - visual-third-party-1.6.8-ibk.aar
 
 ```gradle 
 dependencies {
-    implementation "com.tenqube:notiparser:0.0.7"
-    implementation "com.tenqube:transmsparser:0.0.1-alpha05"
-    implementation "com.tenqube:visualbase:0.0.1-alpha05"
-    implementation "com.tenqube:webui:0.0.1-alpha05"
-    implementation "com.tenqube:shared:0.0.1-alpha05"
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+    // Log
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Network
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:3.8.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.11.0"
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Android View
+    implementation 'androidx.core:core-ktx:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.71'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.activity:activity-ktx:1.0.0'
+    implementation 'androidx.fragment:fragment-ktx:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // Google Ad
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.2.5'
+    kapt 'androidx.room:room-compiler:2.2.5'
+    implementation 'androidx.room:room-ktx:2.2.5'
 }
 ```
 # aar 아닐경우
@@ -23,8 +53,7 @@ dependencies {
 ```gradle
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
-    implementation 'com.tenqube:ibkreceipt:0.0.1-alpha05'
-    implementation 'com.tenqube:ibk:1.6.8'
+    implementation 'com.tenqube:visualibk:0.0.1'
 }
 ```
 
