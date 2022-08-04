@@ -1,8 +1,5 @@
 # visual-android-sdk-sample
 
-# 빌드
-https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
-
 # aar
 ## libs/
 - visual-ibk-ibkreceipt-0.0.1.aar
