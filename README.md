@@ -53,8 +53,7 @@ dependencies {
 ```gradle
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
-    implementation 'com.tenqube:ibkreceipt:0.0.1-alpha05'
-    implementation 'com.tenqube:ibk:1.6.8'
+    implementation 'com.tenqube:visualibk:0.0.1'
 }
 ```
 
