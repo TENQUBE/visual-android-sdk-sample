@@ -3,6 +3,22 @@
 # 빌드
 https://visual-third-party.s3.ap-northeast-2.amazonaws.com/visualibk-0.0.1-alpha04.aar
 
+# aar
+## libs/
+- visaul-ibk-receipt-0.0.1-alpha05.aar
+- visual-ibk-0.0.1-alpha04.aar
+- visual-third-party-1.6.8-ibk.aar
+
+```gradle 
+dependencies {
+    implementation "com.tenqube:notiparser:0.0.7"
+    implementation "com.tenqube:transmsparser:0.0.1-alpha05"
+    implementation "com.tenqube:visualbase:0.0.1-alpha05"
+    implementation "com.tenqube:webui:0.0.1-alpha05"
+    implementation "com.tenqube:shared:0.0.1-alpha05"
+}
+```
+# aar 아닐경우
 # gradle
 ```gradle
 dependencies {
@@ -52,3 +68,16 @@ dependencies {
         .start(UserArg(":UID", 1987, VisualGender.MALE)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
   }
 ```
+
+# 테스트 방법
+- 어플알림 연동 ON 
+<img src="https://user-images.githubusercontent.com/15064370/182561946-d7bd4751-1707-4560-898a-f4305b23566f.jpg" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/15064370/182561930-8591fe23-f303-4c43-96fa-47230124588b.jpg" width="200" height="400"/>
+
+- 테스트 할 단말기에 아래와 같은 문자를 보냅니다
+```
+`15881600;title;[Web발신] NH카드8*9* 승인 김*중 21,380원 체크 11/19 16:53 쿠팡102;2
+```
+- 모바일 영수증 및 알림이 뜹니다.
+<img src="https://user-images.githubusercontent.com/15064370/182564090-2cf87cfc-2ec2-4350-9dba-5e89b455599a.jpg" width="200" height="400"/>
+
