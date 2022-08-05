@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun startReceipt() {
         VisualServiceBuilder()
-            .activity(this)
+            .context(this)
             .apiKey(RECEIPT_API_KEY) // TODO 전달받은 API KEY 정보
             .layer(Layer.DEV) // TODO 개발 : Layer.DEV, 상용: Layer.PROD
             .notification(
