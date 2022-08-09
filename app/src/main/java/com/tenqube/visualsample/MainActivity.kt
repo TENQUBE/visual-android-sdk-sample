@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             )
             .service(Service.IBK) // IBK 고정
             .build()
-            .start(UserArg(":UID", 1987, VisualGender.MALE)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
+            .start(UserArg(":UID", null, null)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
     }
 
     private fun checkPermission() {
