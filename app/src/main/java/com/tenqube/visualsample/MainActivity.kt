@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     private fun createReceiptService() {
         receiptService = VisualReceiptServiceBuilder()
             .context(this)
+            .logger(true)
             .apiKey(RECEIPT_API_KEY) // TODO 전달받은 API KEY 정보
             .layer(Layer.PROD) // TODO 개발 : Layer.DEV, 상용: Layer.PROD
             .notification(
