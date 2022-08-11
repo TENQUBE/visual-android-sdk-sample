@@ -5,14 +5,13 @@ buildscript {
         compileSdkVersion = 30
         minSdkVersion = 21
         targetSdkVersion = 30
-
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0"
+        classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.kotlinVersion"
     }
 }
