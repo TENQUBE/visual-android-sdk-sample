@@ -13,8 +13,8 @@ import com.tenqube.visual_third.VisualServiceImpl
 
 class MainActivity : AppCompatActivity() {
     private lateinit var receiptService: VisualReceiptService
-    private val VISUAL_API_KEY = "LEZQmdU1Zx8hxH1PjfT7hWTzdGOQYre58AVHNgA0" // TODO 가계부 api 키정보
-    private val RECEIPT_API_KEY = "hvvDxbym1D2hYCbMnERM73rZvRopPSZh1Us4Whvq" // TODO 영수증 api 키정보
+    private val VISUAL_API_KEY = "35FfM5fp0A7qloAq9qISm3gbTHJ5LXH726Qpfy5y" // TODO 가계부 api 키정보
+    private val RECEIPT_API_KEY = "QjtqKhrWX63EY5zv3hE1P3HBQaos4SYNaGYXoVJ" // TODO 영수증 api 키정보
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visual_main)
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         val visualService = VisualServiceImpl(
             this,
             VISUAL_API_KEY, // TODO api 키정보
-            Constants.DEV, // TODO 레이어 정보 상용 배포시 Constants.PROD
+            Constants.PROD, // TODO 레이어 정보 상용 배포시 Constants.PROD
             applicationContext.packageName // TODO 패키지 명
         )
         // IBKMainActivity.this 값을 통해 startActivityForResult로 호출합니다.
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         receiptService = VisualReceiptServiceBuilder()
             .context(this)
             .apiKey(RECEIPT_API_KEY) // TODO 전달받은 API KEY 정보
-            .layer(Layer.DEV) // TODO 개발 : Layer.DEV, 상용: Layer.PROD
+            .layer(Layer.PROD) // TODO 개발 : Layer.DEV, 상용: Layer.PROD
             .notification(
                 NotificationArg(
                     R.drawable.ic_status, // TODO 알림 small_icon 정보
