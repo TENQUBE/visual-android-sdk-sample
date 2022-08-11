@@ -12,19 +12,26 @@ import com.tenqube.visual_third.Constants
 import com.tenqube.visual_third.VisualServiceImpl
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var receiptService: VisualReceiptService
     private val VISUAL_API_KEY = "LEZQmdU1Zx8hxH1PjfT7hWTzdGOQYre58AVHNgA0" // TODO 가계부 api 키정보
     private val RECEIPT_API_KEY = "hvvDxbym1D2hYCbMnERM73rZvRopPSZh1Us4Whvq" // TODO 영수증 api 키정보
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_visual_main)
+        createReceiptService()
+
         val ibk: Button = findViewById(R.id.ibk)
         checkPermission()
         ibk.setOnClickListener {
             startVisual()
         }
-        val ibkReceipt: Button = findViewById(R.id.ibk_recept)
+        val ibkReceipt: Button = findViewById(R.id.ibk_receipt)
         ibkReceipt.setOnClickListener {
             startReceipt()
+        }
+        val notiPopup: Button = findViewById(R.id.noti_popup)
+        notiPopup.setOnClickListener {
+            receiptService.startNotiPopup(this)
         }
     }
 
@@ -47,11 +54,8 @@ class MainActivity : AppCompatActivity() {
         ) { signUpResult, msg -> } // TODO uid 및 딥링크 패스 넣어주기
     }
 
-    /**
-     * 모바일 영수증
-     */
-    private fun startReceipt() {
-        VisualServiceBuilder()
+    private fun createReceiptService() {
+        receiptService = VisualReceiptServiceBuilder()
             .context(this)
             .apiKey(RECEIPT_API_KEY) // TODO 전달받은 API KEY 정보
             .layer(Layer.DEV) // TODO 개발 : Layer.DEV, 상용: Layer.PROD
@@ -64,7 +68,12 @@ class MainActivity : AppCompatActivity() {
             )
             .service(Service.IBK) // IBK 고정
             .build()
-            .start(UserArg(":UID", null, null)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
+    }
+    /**
+     * 모바일 영수증
+     */
+    private fun startReceipt() {
+        receiptService.start(UserArg(":UID", null, null)) // TODO 사용자 고유 아이디, 생년, 성별 넣어주기
     }
 
     private fun checkPermission() {
