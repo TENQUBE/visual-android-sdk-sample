@@ -67,6 +67,11 @@ class MainActivity : AppCompatActivity() {
                     R.color.white // 색상코드 // TODO 알림 색상 코드
                 )
             )
+            .callback(object : LifecycleCallback {
+                override fun onResume() {
+                }
+
+            })
             .service(Service.IBK) // IBK 고정
             .build()
     }
