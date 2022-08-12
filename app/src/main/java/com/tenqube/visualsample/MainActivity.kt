@@ -68,7 +68,13 @@ class MainActivity : AppCompatActivity() {
                 )
             )
             .callback(object : LifecycleCallback {
+                override fun onFinish() {
+                }
+
                 override fun onResume() {
+                }
+
+                override fun onUpdate() {
                 }
 
             })
