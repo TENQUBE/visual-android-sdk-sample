@@ -3,6 +3,7 @@ package com.tenqube.visualsample
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -31,7 +32,14 @@ class MainActivity : AppCompatActivity() {
         }
         val notiPopup: Button = findViewById(R.id.noti_popup)
         notiPopup.setOnClickListener {
-            receiptService.startNotiPopup(this)
+            receiptService.startNotiPopup(
+                this.applicationContext,
+                object : OnNotiChangeListener {
+                    override fun onNotiChanged(enabled: Boolean) {
+                        Log.i("TAG", "onNotiChanged: $enabled")
+                    }
+                }
+            )
         }
     }
 
@@ -76,7 +84,6 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onUpdate() {
                 }
-
             })
             .service(Service.IBK) // IBK 고정
             .build()
