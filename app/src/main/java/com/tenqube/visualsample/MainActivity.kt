@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                 object : OnNotiChangeListener {
                     override fun onNotiChanged(enabled: Boolean) {
                         Log.i("TAG", "onNotiChanged: $enabled")
+
                     }
                 }
             )
