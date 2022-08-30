@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var receiptService: VisualReceiptService
     private val VISUAL_API_KEY = "35FfM5fp0A7qloAq9qISm3gbTHJ5LXH726Qpfy5y" // TODO 가계부 api 키정보
     private val RECEIPT_API_KEY = "QjtqKhrWX63EY5zv3hE1P3HBQaos4SYNaGYXoVLJ" // TODO 영수증 api 키정보
+    private var isJoined: Switch? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visual_main)
@@ -45,10 +47,9 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        val isJoined: Switch = findViewById(R.id.is_joined)
-        isJoined.isChecked = receiptService.isJoined()
+        isJoined = findViewById(R.id.is_joined)
 
-        isJoined.setOnCheckedChangeListener { buttonView, isChecked ->
+        isJoined?.setOnCheckedChangeListener { buttonView, isChecked ->
 
             if(isChecked) {
                 // TODO 가계부 약관동의 후 가입 실행
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         val signOut: Button = findViewById(R.id.sign_out)
         signOut.setOnClickListener {
             receiptService.signOut()
+            isJoined?.isChecked = receiptService.isJoined()
         }
     }
 
@@ -137,5 +139,10 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isJoined?.isChecked = receiptService.isJoined()
     }
 }
