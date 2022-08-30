@@ -5,6 +5,9 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.CompoundButton
+import android.widget.RadioGroup
+import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -37,10 +40,28 @@ class MainActivity : AppCompatActivity() {
                 object : OnNotiChangeListener {
                     override fun onNotiChanged(enabled: Boolean) {
                         Log.i("TAG", "onNotiChanged: $enabled")
-
                     }
                 }
             )
+        }
+
+        val isJoined: Switch = findViewById(R.id.is_joined)
+        isJoined.isChecked = receiptService.isJoined()
+
+        isJoined.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            if(isChecked) {
+                // TODO 가계부 약관동의 후 가입 실행
+//                receiptService.start(UserArg("uid", null, null))
+            } else {
+                // TODO 팝업 띄우고 확인 누르면 탈퇴 api 호출
+//                receiptService.signOut()
+            }
+        }
+
+        val signOut: Button = findViewById(R.id.sign_out)
+        signOut.setOnClickListener {
+            receiptService.signOut()
         }
     }
 
