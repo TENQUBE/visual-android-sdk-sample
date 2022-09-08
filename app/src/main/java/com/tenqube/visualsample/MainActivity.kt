@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         isReceipt = findViewById(R.id.is_receipt)
 
         isReceipt?.setOnCheckedChangeListener { buttonView, isChecked ->
+            receiptService.saveReceiptEnabled(isChecked)
         }
 
         val signOut: Button = findViewById(R.id.sign_out)
@@ -73,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             isJoined?.isChecked = receiptService.isJoined()
         }
     }
-
     /**
      * 기존 가계부
      */
