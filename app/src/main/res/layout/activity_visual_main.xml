@@ -68,6 +68,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/is_joined" />
 
+
+
+    <Switch
+        android:layout_margin="24dp"
+        app:layout_constraintVertical_bias="0.0"
+        android:id="@+id/is_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오버레이 설정 여부"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/is_receipt" />
+
     <Button
         android:layout_margin="24dp"
         app:layout_constraintVertical_bias="0.0"
@@ -78,6 +92,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/is_receipt" />
+        app:layout_constraintTop_toBottomOf="@+id/is_overlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

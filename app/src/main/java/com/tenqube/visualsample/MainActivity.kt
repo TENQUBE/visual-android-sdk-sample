@@ -1,6 +1,7 @@
 package com.tenqube.visualsample
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val RECEIPT_API_KEY = "QjtqKhrWX63EY5zv3hE1P3HBQaos4SYNaGYXoVLJ" // TODO 영수증 api 키정보
     private var isJoined: Switch? = null
     private var isReceipt: Switch? = null
+    private var isOverlay: Switch? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,12 @@ class MainActivity : AppCompatActivity() {
 
         isReceipt?.setOnCheckedChangeListener { buttonView, isChecked ->
             receiptService.saveReceiptEnabled(isChecked)
+        }
+
+        isOverlay = findViewById(R.id.is_overlay)
+        isOverlay?.isChecked = PermissionUtil.shouldRequestOverlayPermission(this)
+        isOverlay?.setOnCheckedChangeListener { buttonView, isChecked ->
+            PermissionUtil.startOverlaySettings(this, 0)
         }
 
         val signOut: Button = findViewById(R.id.sign_out)
@@ -145,6 +153,13 @@ class MainActivity : AppCompatActivity() {
                     0
                 )
             }
+        }
+    }
+
+    override fun startActivityForResult(intent: Intent?, requestCode: Int) {
+        super.startActivityForResult(intent, requestCode)
+        if(requestCode == 0) {
+            isOverlay?.isChecked = PermissionUtil.shouldRequestOverlayPermission(this)
         }
     }
 
