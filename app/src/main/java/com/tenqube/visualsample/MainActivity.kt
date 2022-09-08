@@ -71,8 +71,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         isOverlay = findViewById(R.id.is_overlay)
-        isOverlay?.isChecked = PermissionUtil.shouldRequestOverlayPermission(this)
-        isOverlay?.setOnCheckedChangeListener { buttonView, isChecked ->
+        isOverlay?.isChecked = PermissionUtil.hanOverlayPermission(this)
+        isOverlay?.setOnClickListener() {
             PermissionUtil.startOverlaySettings(this, 0)
         }
 
@@ -156,10 +156,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun startActivityForResult(intent: Intent?, requestCode: Int) {
-        super.startActivityForResult(intent, requestCode)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == 0) {
-            isOverlay?.isChecked = PermissionUtil.shouldRequestOverlayPermission(this)
+            isOverlay?.isChecked = PermissionUtil.hanOverlayPermission(this)
         }
     }
 
