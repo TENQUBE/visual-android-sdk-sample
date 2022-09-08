@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val VISUAL_API_KEY = "35FfM5fp0A7qloAq9qISm3gbTHJ5LXH726Qpfy5y" // TODO 가계부 api 키정보
     private val RECEIPT_API_KEY = "QjtqKhrWX63EY5zv3hE1P3HBQaos4SYNaGYXoVLJ" // TODO 영수증 api 키정보
     private var isJoined: Switch? = null
+    private var isReceipt: Switch? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +59,12 @@ class MainActivity : AppCompatActivity() {
                 // TODO 팝업 띄우고 확인 누르면 탈퇴 api 호출
 //                receiptService.signOut()
             }
+        }
+
+
+        isReceipt = findViewById(R.id.is_receipt)
+
+        isReceipt?.setOnCheckedChangeListener { buttonView, isChecked ->
         }
 
         val signOut: Button = findViewById(R.id.sign_out)
@@ -144,5 +151,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         isJoined?.isChecked = receiptService.isJoined()
+        isReceipt?.isChecked = receiptService.isReceiptEnabled()
     }
 }
