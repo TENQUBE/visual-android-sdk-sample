@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         isOverlay?.setOnClickListener() {
             PermissionUtil.startOverlaySettings(this, 0)
         }
-
         isNoti = findViewById(R.id.is_noti)
         isNoti?.isChecked = PermissionUtil.isNotiServiceEnabled(this)
 
