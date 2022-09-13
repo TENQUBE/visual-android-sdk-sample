@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             PermissionUtil.startOverlaySettings(this, 0)
         }
         isNoti = findViewById(R.id.is_noti)
-        isNoti?.isChecked = PermissionUtil.isNotiServiceEnabled(this)
+        isNoti?.isChecked = PermissionUtil.hasNotiServicePermission(this)
         val signOut: Button = findViewById(R.id.sign_out)
         signOut.setOnClickListener {
             receiptService.signOut()
