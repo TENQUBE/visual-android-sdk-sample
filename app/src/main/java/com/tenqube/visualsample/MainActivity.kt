@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var isJoined: Switch? = null
     private var isReceipt: Switch? = null
     private var isOverlay: Switch? = null
+    private var isNoti: Switch? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,9 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         isReceipt = findViewById(R.id.is_receipt)
-
         isReceipt?.setOnCheckedChangeListener { buttonView, isChecked ->
             receiptService.saveReceiptEnabled(isChecked)
         }
@@ -75,6 +74,9 @@ class MainActivity : AppCompatActivity() {
         isOverlay?.setOnClickListener() {
             PermissionUtil.startOverlaySettings(this, 0)
         }
+
+        isNoti = findViewById(R.id.is_noti)
+        isNoti?.isChecked = PermissionUtil.isNotiServiceEnabled(this)
 
         val signOut: Button = findViewById(R.id.sign_out)
         signOut.setOnClickListener {
