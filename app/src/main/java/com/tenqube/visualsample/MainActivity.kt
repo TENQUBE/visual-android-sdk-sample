@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         isJoined = findViewById(R.id.is_joined)
 
         isJoined?.setOnCheckedChangeListener { buttonView, isChecked ->
-
             if(isChecked) {
                 // TODO 가계부 약관동의 후 가입 실행
 //                receiptService.start(UserArg("uid", null, null))
