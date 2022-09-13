@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
         isReceipt?.setOnCheckedChangeListener { buttonView, isChecked ->
             receiptService.saveReceiptEnabled(isChecked)
         }
-
         isOverlay = findViewById(R.id.is_overlay)
         isOverlay?.isChecked = PermissionUtil.hasOverlayPermission(this)
         isOverlay?.setOnClickListener() {
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         }
         isNoti = findViewById(R.id.is_noti)
         isNoti?.isChecked = PermissionUtil.isNotiServiceEnabled(this)
-
         val signOut: Button = findViewById(R.id.sign_out)
         signOut.setOnClickListener {
             receiptService.signOut()
