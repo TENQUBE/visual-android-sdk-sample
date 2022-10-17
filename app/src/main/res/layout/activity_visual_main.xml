@@ -9,6 +9,19 @@
 
     <Button
         android:layout_margin="24dp"
+        android:id="@+id/ibk_receipt_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모바일 영수증 가입하기"
+        app:layout_constraintBottom_toTopOf="@+id/ibk_receipt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+    <Button
+        android:layout_margin="24dp"
         android:id="@+id/ibk_receipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

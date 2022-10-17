@@ -28,6 +28,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_visual_main)
         createReceiptService()
 
+        val ibkSignUp: Button = findViewById(R.id.ibk_receipt_sign_up)
+        ibkSignUp.setOnClickListener {
+            receiptService.signUp(UserArg(":UID", null, null), object : OnSignUpListener {
+                override fun onFail(msg: String) {
+                }
+
+                override fun onSuccess() {
+                }
+            })
+        }
+
         val ibk: Button = findViewById(R.id.ibk)
         checkPermission()
         ibk.setOnClickListener {
