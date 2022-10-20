@@ -1,8 +1,12 @@
 package com.tenqube.visualsample
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -35,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onSuccess() {
+
                 }
             })
         }
@@ -89,6 +94,17 @@ class MainActivity : AppCompatActivity() {
             isJoined?.isChecked = receiptService.isJoined()
         }
     }
+
+    private fun createNotificationChannel() {
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+        ) {
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel("ibk-channel-id", "receipt", importance)
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
     /**
      * 기존 가계부
      */
@@ -109,6 +125,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createReceiptService() {
+        createNotificationChannel()
         receiptService = VisualReceiptServiceBuilder()
             .context(this)
             .logger(false)
