@@ -21,7 +21,7 @@ import com.tenqube.visual_third.VisualServiceImpl
 class MainActivity : AppCompatActivity() {
     private lateinit var receiptService: VisualReceiptService
     private val VISUAL_API_KEY = "35FfM5fp0A7qloAq9qISm3gbTHJ5LXH726Qpfy5y" // TODO 가계부 api 키정보
-    private val RECEIPT_API_KEY = "QjtqKhrWX63EY5zv3hE1P3HBQaos4SYNaGYXoVLJ" // TODO 영수증 api 키정보
+    private val RECEIPT_API_KEY = "hvvDxbym1D2hYCbMnERM73rZvRopPSZh1Us4Whvq" // TODO 영수증 api 키정보
     private var isJoined: Switch? = null
     private var isReceipt: Switch? = null
     private var isOverlay: Switch? = null
@@ -140,6 +140,7 @@ class MainActivity : AppCompatActivity() {
             )
             .callback(object : LifecycleCallback {
                 override fun onFinish() {
+                    finish()
                 }
 
                 override fun onResume() {
