@@ -16,10 +16,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.tenqube.ibkreceipt.*
 import com.tenqube.visual_third.Constants
+import com.tenqube.visual_third.VisualService
 import com.tenqube.visual_third.VisualServiceImpl
 
 class MainActivity : AppCompatActivity() {
     private lateinit var receiptService: VisualReceiptService
+    private lateinit var visualService: VisualService
     private val VISUAL_API_KEY = "35FfM5fp0A7qloAq9qISm3gbTHJ5LXH726Qpfy5y" // TODO 가계부 api 키정보
     private val RECEIPT_API_KEY = "hvvDxbym1D2hYCbMnERM73rZvRopPSZh1Us4Whvq" // TODO 영수증 api 키정보
     private var isJoined: Switch? = null
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visual_main)
         createReceiptService()
+        createVisual()
 
         val ibkSignUp: Button = findViewById(R.id.ibk_receipt_sign_up)
         ibkSignUp.setOnClickListener {
@@ -93,6 +96,22 @@ class MainActivity : AppCompatActivity() {
             receiptService.signOut()
             isJoined?.isChecked = receiptService.isJoined()
         }
+
+        val visualSignOut: Button = findViewById(R.id.visual_sign_out)
+        visualSignOut.setOnClickListener {
+            visualService.signOut {
+
+            }
+        }
+    }
+
+    private fun createVisual() {
+        visualService = VisualServiceImpl(
+            this,
+            VISUAL_API_KEY, // TODO api 키정보
+            Constants.PROD, // TODO 레이어 정보 상용 배포시 Constants.PROD
+            applicationContext.packageName // TODO 패키지 명
+        )
     }
 
     private fun createNotificationChannel() {
@@ -110,12 +129,6 @@ class MainActivity : AppCompatActivity() {
      */
     private fun startVisual() {
         // visual service 생성
-        val visualService = VisualServiceImpl(
-            this,
-            VISUAL_API_KEY, // TODO api 키정보
-            Constants.PROD, // TODO 레이어 정보 상용 배포시 Constants.PROD
-            applicationContext.packageName // TODO 패키지 명
-        )
         // IBKMainActivity.this 값을 통해 startActivityForResult로 호출합니다.
         // IBK user 고유 아이디 정보를 추가해 주세요.
         // getVisualPath() 함수를 통해 딥링크를 통해 들어온 값을 전달합니다.
