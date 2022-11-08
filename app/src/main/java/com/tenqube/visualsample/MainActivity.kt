@@ -39,10 +39,13 @@ class MainActivity : AppCompatActivity() {
         ibkSignUp.setOnClickListener {
             receiptService.signUp(UserArg(":UID", null, null), object : OnSignUpListener {
                 override fun onFail(msg: String) {
+                    Log.i("TAG", "isChecked: $msg")
                 }
 
                 override fun onSuccess() {
-
+                    runOnUiThread {
+                        isJoined?.isChecked = receiptService.isJoined()
+                    }
                 }
             })
         }
@@ -71,7 +74,10 @@ class MainActivity : AppCompatActivity() {
         isJoined = findViewById(R.id.is_joined)
 
         isJoined?.setOnCheckedChangeListener { buttonView, isChecked ->
+            Log.i("TAG", "isChecked: $isChecked")
+
             if(isChecked) {
+
                 // TODO 가계부 약관동의 후 가입 실행
 //                receiptService.start(UserArg("uid", null, null))
             } else {
