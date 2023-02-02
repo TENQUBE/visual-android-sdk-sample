@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Visualandroidsdk">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1003660361092577~2282746668" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
