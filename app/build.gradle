@@ -69,7 +69,7 @@ dependencies {
 
     implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
     // Google Ad
-    implementation 'com.google.android.gms:play-services-ads:19.2.0'
+    implementation ㅁ'com.google.android.gms:play-services-ads:19.2.0'
 
     // Room
     implementation 'androidx.room:room-runtime:2.2.5'
