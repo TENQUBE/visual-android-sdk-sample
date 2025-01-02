@@ -2,20 +2,22 @@
 
 # aar
 ## libs/
-- visual-ibk-ibkreceipt-0.0.1.aar
-- visual-ibk-shared-0.0.1.aar
-- visual-ibk-transmsparser-0.0.1.aar
-- visual-ibk-visualbase-0.0.1.aar
-- visual-ibk-visualibk-0.0.1.aar
-- visual-ibk-webui-0.0.1.aar
-- visual-third-party-1.6.8-ibk.aar
+    visual-ibk-ibkreceipt-1.1.1.aar
+    visual-ibk-shared-1.0.5.aar
+    visual-ibk-transmsparser-1.0.4.aar
+    visual-ibk-visual-third-party-1.8.5.aar
+    visual-ibk-visualbase-1.1.0.aar
+    visual-ibk-visualibk-1.0.4.aar
+    visual-ibk-webui-1.0.6.aar
 
 ```gradle 
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
     // Log
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
+    implementation "com.tenqube:notiparser:0.0.7"
+    implementation 'androidx.preference:preference:1.2.0'
+ 
     // Network
     implementation "com.squareup.retrofit2:retrofit:2.4.0"
     implementation "com.squareup.retrofit2:converter-gson:2.3.0"
