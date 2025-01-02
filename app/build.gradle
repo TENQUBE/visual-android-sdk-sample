@@ -1,11 +1,12 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
     id 'kotlin-kapt'
 }
 
 android {
     compileSdk rootProject.compileSdkVersion
+    namespace "com.tenqube.visualsample"
 
     defaultConfig {
         applicationId "com.tenqube.visualsample"
@@ -24,25 +25,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
-//    implementation "com.tenqube:notiparser:0.0.7"
-//    implementation "com.tenqube:transmsparser:0.0.1-alpha05"
-//    implementation "com.tenqube:visualbase:0.0.1-alpha05"
-//    implementation "com.tenqube:webui:0.0.1-alpha05"
-//    implementation "com.tenqube:shared:0.0.1-alpha05"
 
     // Log
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation "com.tenqube:notiparser:0.0.7"
+    implementation 'androidx.preference:preference:1.2.0'
     // Network
     implementation "com.squareup.retrofit2:retrofit:2.6.0"
     implementation "com.squareup.retrofit2:converter-gson:2.6.0"
