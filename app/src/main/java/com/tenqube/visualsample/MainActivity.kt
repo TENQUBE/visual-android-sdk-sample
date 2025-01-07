@@ -14,7 +14,16 @@ import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.tenqube.ibkreceipt.*
+import com.tenqube.ibkreceipt.Layer
+import com.tenqube.ibkreceipt.LifecycleCallback
+import com.tenqube.ibkreceipt.NotificationArg
+import com.tenqube.ibkreceipt.OnNotiChangeListener
+import com.tenqube.ibkreceipt.OnSignUpListener
+import com.tenqube.ibkreceipt.PermissionUtil
+import com.tenqube.ibkreceipt.Service
+import com.tenqube.ibkreceipt.UserArg
+import com.tenqube.ibkreceipt.VisualReceiptService
+import com.tenqube.ibkreceipt.VisualReceiptServiceBuilder
 import com.tenqube.visual_third.Constants
 import com.tenqube.visual_third.VisualService
 import com.tenqube.visual_third.VisualServiceImpl
@@ -34,20 +43,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_visual_main)
         createReceiptService()
         createVisual()
-
         val ibkSignUp: Button = findViewById(R.id.ibk_receipt_sign_up)
         ibkSignUp.setOnClickListener {
-            receiptService.signUp(UserArg(":UID", null, null), object : OnSignUpListener {
-                override fun onFail(msg: String) {
-                    Log.i("TAG", "isChecked: $msg")
-                }
+            receiptService.signUp(
+                UserArg(":UID", null, null),
+                object : OnSignUpListener {
+                    override fun onFail(msg: String) {
+                    }
 
-                override fun onSuccess() {
-                    runOnUiThread {
-                        isJoined?.isChecked = receiptService.isJoined()
+                    override fun onSuccess() {
+                        runOnUiThread {
+                            isJoined?.isChecked = receiptService.isJoined()
+                        }
                     }
                 }
-            })
+            )
         }
 
         val ibk: Button = findViewById(R.id.ibk)
@@ -74,9 +84,7 @@ class MainActivity : AppCompatActivity() {
         isJoined = findViewById(R.id.is_joined)
 
         isJoined?.setOnCheckedChangeListener { buttonView, isChecked ->
-            Log.i("TAG", "isChecked: $isChecked")
-
-            if(isChecked) {
+            if (isChecked) {
 
                 // TODO 가계부 약관동의 후 가입 실행
 //                receiptService.start(UserArg("uid", null, null))
@@ -92,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         }
         isOverlay = findViewById(R.id.is_overlay)
         isOverlay?.isChecked = PermissionUtil.hasOverlayPermission(this)
-        isOverlay?.setOnClickListener() {
+        isOverlay?.setOnClickListener {
             PermissionUtil.startOverlaySettings(this, 0)
         }
         isNoti = findViewById(R.id.is_noti)
@@ -105,9 +113,7 @@ class MainActivity : AppCompatActivity() {
 
         val visualSignOut: Button = findViewById(R.id.visual_sign_out)
         visualSignOut.setOnClickListener {
-            visualService.signOut {
-
-            }
+            visualService.signOut {}
         }
     }
 
@@ -130,6 +136,7 @@ class MainActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
     }
+
     /**
      * 기존 가계부
      */
@@ -171,6 +178,7 @@ class MainActivity : AppCompatActivity() {
             .service(Service.IBK) // IBK 고정
             .build()
     }
+
     /**
      * 모바일 영수증
      */
@@ -202,7 +210,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 0) {
+        if (requestCode == 0) {
             isOverlay?.isChecked = PermissionUtil.hasOverlayPermission(this)
         }
     }
