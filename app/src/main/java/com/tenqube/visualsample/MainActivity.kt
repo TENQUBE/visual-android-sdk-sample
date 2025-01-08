@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
@@ -75,7 +74,6 @@ class MainActivity : AppCompatActivity() {
                 this.applicationContext,
                 object : OnNotiChangeListener {
                     override fun onNotiChanged(enabled: Boolean) {
-                        Log.i("TAG", "onNotiChanged: $enabled")
                     }
                 }
             )
@@ -83,9 +81,8 @@ class MainActivity : AppCompatActivity() {
 
         isJoined = findViewById(R.id.is_joined)
 
-        isJoined?.setOnCheckedChangeListener { buttonView, isChecked ->
+        isJoined?.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-
                 // TODO 가계부 약관동의 후 가입 실행
 //                receiptService.start(UserArg("uid", null, null))
             } else {
