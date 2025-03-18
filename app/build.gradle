@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.aar'], dir: 'libs')
+//    implementation fileTree(include: ['*.aar'], dir: 'libs')
     // Log
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation "com.tenqube:notiparser:0.0.7"
