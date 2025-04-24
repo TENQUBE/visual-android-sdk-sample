@@ -2,13 +2,13 @@
 
 # aar
 ## libs/
-    visual-ibk-ibkreceipt-2.0.3.aar
-    visual-ibk-shared-2.0.3.aar
-    visual-ibk-transmsparser-2.0.3.aar
-    visual-ibk-visual-third-party-2.0.4.aar
-    visual-ibk-visualbase-2.0.3.aar
-    visual-ibk-visualibk-2.0.3.aar
-    visual-ibk-webui-2.0.3.aar
+    visual-ibk-ibkreceipt-2.0.5.aar
+    visual-ibk-shared-2.0.5.aar
+    visual-ibk-transmsparser-2.0.5.aar
+    visual-ibk-visual-third-party-2.0.5.aar
+    visual-ibk-visualbase-2.0.5.aar
+    visual-ibk-visualibk-2.0.5.aar
+    visual-ibk-webui-2.0.5.aar
 
 ```gradle 
 dependencies {
